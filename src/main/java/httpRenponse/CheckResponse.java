@@ -1,6 +1,6 @@
 package httpRenponse;
 
-public class Redirect {
+public class CheckResponse {
     public static void main(String[] args) {
 
         String url = "http://github.com/";
@@ -8,7 +8,7 @@ public class Redirect {
         String url400 = "https://github.com/testlololo";
         Util util = new Util();
 
-        
+
 
         System.out.println( util.response(url));
         System.out.println(util.response(url200));
