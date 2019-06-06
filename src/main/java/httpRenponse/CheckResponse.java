@@ -10,6 +10,8 @@ public class CheckResponse {
     public static void main(String[] args) {
 
         String url = "http://github.com/";
+        String url400 ="https://github.com/testlololo";
+
 
         Util util = new Util();
         HtmlElement htmlElement;
@@ -18,9 +20,9 @@ public class CheckResponse {
         webClient.getOptions().setCssEnabled(false);// enable css
         webClient.getOptions().setJavaScriptEnabled(false);//enable JavaScript
 
-        System.out.println( util.response(url));
+        System.out.println(util.response(url400));
 
-        if(util.response(url)>=200 || util.response(url) <300){
+        if (util.response(url) >= 200 & util.response(url) < 300) {
             try {
                 HtmlPage htmlPage = webClient.getPage(url);//set url
                 //get title
@@ -34,22 +36,27 @@ public class CheckResponse {
 
 
                 // get text from H1
-                htmlElement =  htmlPage.getFirstByXPath("//h1[@class = 'h000-mktg text-white lh-condensed-ultra mb-3']");
+                htmlElement = htmlPage.getFirstByXPath("//h1[@class = 'h000-mktg text-white lh-condensed-ultra mb-3']");
                 String textFromH1 = htmlElement.getTextContent();
                 System.out.println(textFromH1);
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }else if (util.response(url)>=100 & util.response(url) < 200 ) {
+            System.out.println("Response code 1**. Informational response");
         }
-        else if (util.response(url)>= 300 || util.response(url)<400){
-            System.out.println("request is redirect ");
+         else if (util.response(url) >= 300 & util.response(url) < 400) {
+            System.out.println("Response code 3**. Request is redirect ");
         }
-        else if (util.response(url)>=400){
-            System.out.println();
+         else if (util.response(url) >= 400 & util.response(url) < 500) {
+            System.out.println("Response code 4**. It's clint's error");
         }
+         else if (util.response(url)>=500){
+            System.out.println("Response code 5**. It's server error");
+        }
+
+
 
     }
-
-
 }
