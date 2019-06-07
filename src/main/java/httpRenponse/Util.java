@@ -18,8 +18,8 @@ public class Util {
         // send the response or execute the request
         try {
              httpResponse = HttpClientBuilder.create().build().execute(request);
-             responseCode = httpResponse.getStatusLine().getStatusCode();
-            // return  responseCode;
+             responseCode = httpResponse.getStatusLine().getStatusCode();// get  responseCode;
+
         } catch (IOException e) {
             e.printStackTrace();
         }

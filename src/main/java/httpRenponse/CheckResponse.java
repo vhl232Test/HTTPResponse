@@ -17,8 +17,8 @@ public class CheckResponse {
         HtmlElement htmlElement;
         WebClient webClient = new WebClient();
 
-        webClient.getOptions().setCssEnabled(false);// enable css
-        webClient.getOptions().setJavaScriptEnabled(false);//enable JavaScript
+        webClient.getOptions().setCssEnabled(false);// disable css
+        webClient.getOptions().setJavaScriptEnabled(false);//disable JavaScript
 
         System.out.println(util.response(url400));
 
