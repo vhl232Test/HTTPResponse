@@ -20,25 +20,25 @@ public class CheckResponse {
         webClient.getOptions().setCssEnabled(false);// disable css
         webClient.getOptions().setJavaScriptEnabled(false);//disable JavaScript
 
-        System.out.println(util.response(url400));
+        System.out.println(util.response(url));
 
         if (util.response(url) >= 200 & util.response(url) < 300) {
             try {
                 HtmlPage htmlPage = webClient.getPage(url);//set url
                 //get title
                 String title = htmlPage.getTitleText();
-                System.out.println(title);
+                System.out.println("Page Title: " + title);
 
                 //get meta-description
                 htmlElement = htmlPage.getFirstByXPath("//meta[@name = 'description']");
                 String mataDescrip = htmlElement.getAttribute("content");
-                System.out.println(mataDescrip);
+                System.out.println("MetaDescription: "+mataDescrip);
 
 
                 // get text from H1
                 htmlElement = htmlPage.getFirstByXPath("//h1[@class = 'h000-mktg text-white lh-condensed-ultra mb-3']");
                 String textFromH1 = htmlElement.getTextContent();
-                System.out.println(textFromH1);
+                System.out.println("H1: "+textFromH1);
 
             } catch (IOException e) {
                 e.printStackTrace();
