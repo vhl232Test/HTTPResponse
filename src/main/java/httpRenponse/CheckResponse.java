@@ -6,7 +6,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class CheckResponse {
     public static void main(String[] args) {
