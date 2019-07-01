@@ -18,6 +18,7 @@ public class CheckResponse {
         String urlTest = "https://www.github.com/test/";
         String urlTestLol = "https://github.com/test?lol";
 
+        //created Array
         ArrayList<String> http = new ArrayList<String>();
 
         http.add(urlHTTP);
