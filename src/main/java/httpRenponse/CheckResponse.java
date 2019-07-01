@@ -5,13 +5,29 @@ import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CheckResponse {
     public static void main(String[] args) {
 
-        String url = "http://github.com/";
+        String urlHTTP = "http://github.com/";
         String url400 ="https://github.com/testlololo";
+        String urlHTTPS = "https://github.com/";
+        String urlHTTPSwww ="https://www.github.com/";
+        String urlTest = "https://www.github.com/test/";
+        String urlTestLol = "https://github.com/test?lol";
 
+        ArrayList<String> http = new ArrayList<String>();
+
+        http.add(urlHTTP);
+        http.add(url400);
+        http.add(urlHTTPS);
+        http.add(urlHTTPSwww);
+        http.add(urlTest);
+        http.add(urlTestLol);
+
+        for (String url:http) {
 
         Util util = new Util();
         HtmlElement htmlElement;
@@ -20,7 +36,7 @@ public class CheckResponse {
         webClient.getOptions().setCssEnabled(false);// disable css
         webClient.getOptions().setJavaScriptEnabled(false);//disable JavaScript
 
-        System.out.println(util.response(url400));
+        System.out.println(util.response(url));
 
         if (util.response(url) >= 200 & util.response(url) < 300) {
             try {
@@ -56,7 +72,7 @@ public class CheckResponse {
             System.out.println("Response code 5**. It's server error");
         }
 
-
+        }
 
     }
 }
